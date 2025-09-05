@@ -1,0 +1,11 @@
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:512:13:OnTxTimerEvent	8	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:602:13:OnMacProcessNotify	8	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:323:13:OnRxData	40	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:532:13:OnRxTimerLedEvent	8	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:527:13:OnTxTimerLedEvent	8	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:391:13:SendTxData	32	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:537:13:OnJoinTimerLedEvent	8	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:544:13:OnTxData	24	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:573:13:OnJoinRequest	16	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:230:6:LoRaWAN_Init	48	static
+C:/Users/caiom/STM32CubeIDE/lorawan/STM32CubeExpansion_LRWAN_V2.1.0/Projects/B-L072Z-LRWAN1/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c:304:6:HAL_GPIO_EXTI_Callback	8	static
