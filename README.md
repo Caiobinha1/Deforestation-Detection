@@ -8,27 +8,45 @@ This project provides a complete pipeline for creating a custom audio dataset an
 
 The repository is organized into two main folders, each with a specific purpose.
 
-├── Dataset_validation/
-│ ├── Mix_Audios.py # Script to generate new audio clips
-│ ├── Raw_Audios/ # Folder for all source audio clips
-│ │ ├── Chainsaw/
-│ │ ├── Engine/
-│ │ ├── Fire/
-│ │ ├── Footsteps/
-│ │ ├── Forest_Ambiance/
-│ │ ├── HandSaw/
-│ │ ├── Rain/
-│ │ └── Thunderstorm/
-│ └── Generated_Audios/ # Output folder for mixed audio
-│
-├── Fine-tuned_Model/
-│ ├── yamnet-transfer-learning-on-esc50.ipynb # Jupyter Notebook for model training
-│ ├── batch_inference.py # Script to classify a folder of audio
-│ └── esc50_forest.h5 # The trained Keras model file
-│
-├── requirements.txt # List of Python dependencies
-└── README.md # This file
-Workflow and Usage
+Dataset_validation/
+
+    Mix_Audios.py (Script to generate new audio clips)
+
+    Raw_Audios/ (Folder for all source audio clips)
+
+        Chainsaw/
+
+        Engine/
+
+        Fire/
+
+        Footsteps/
+
+        Forest_Ambiance/
+
+        HandSaw/
+
+        Rain/
+
+        Thunderstorm/
+
+    Generated_Audios/ (Output folder for mixed audio)
+
+Fine-tuned_Model/
+
+    yamnet-transfer-learning-on-esc50.ipynb (Jupyter Notebook for model training)
+
+    batch_inference.py (Script to classify a folder of audio)
+
+    esc50_forest.h5 (The trained Keras model file)
+
+Root Files
+
+    requirements.txt (List of Python dependencies)
+
+    README.md (This file)
+
+### Workflow and Usage
 
 Generate the Dataset:
 The first step is to create a realistic dataset by mixing foreground sounds (e.g., a chainsaw) with background sounds (e.g., a forest ambiance).
