@@ -7,7 +7,7 @@ This project provides a complete pipeline for creating a custom audio dataset an
 ## 📂 Project Structure
 
 The repository is organized into two main folders, each with a specific purpose.
-.
+
 ├── Dataset_validation/
 │   ├── Mix_Audios.py               # Script to generate new audio clips
 │   ├── Raw_Audios/                 # Folder for all source audio clips
@@ -22,7 +22,7 @@ The repository is organized into two main folders, each with a specific purpose.
 │   └── Generated_Audios/           # Output folder for mixed audio
 │
 ├── Fine-tuned_Model/
-│   ├── [Your_Notebook_Name].ipynb    # Jupyter Notebook for model training
+│   ├── yamnet-transfer-learning-on-esc50.ipynb    # Jupyter Notebook for model training
 │   ├── batch_inference.py          # Script to classify a folder of audio
 │   └── esc50_forest.h5             # The trained Keras model file
 │
