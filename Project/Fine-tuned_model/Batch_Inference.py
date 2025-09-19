@@ -12,7 +12,7 @@ import glob
 MY_CLASSES = ['chainsaw', 'footsteps', 'crackling_fire', 'rain', 'engine', 'hand_saw']
 
 # Path to your saved custom model (use raw string or forward slashes)
-CUSTOM_MODEL_PATH = r'C:\Github\-deforestation-detection\Fine-tuned_model\esc50_forest.h5'
+CUSTOM_MODEL_PATH = r'Project\Fine-tuned_model\esc50_forest.h5'
 
 def load_wav_16k_mono(filename):
     """ Loads a WAV file, converts it to a float tensor, and resamples to 16kHz. """
@@ -45,7 +45,6 @@ def main():
     # --- 3. GET FOLDER AND FIND AUDIO FILES ---
     audio_folder = input("Enter the path to the folder with audio files to classify: ")
     
-    # Find all .wav files in the specified folder
     audio_files_to_classify = glob.glob(os.path.join(audio_folder, '*.wav'))
     
     if not audio_files_to_classify:
@@ -61,21 +60,33 @@ def main():
         
         waveform = load_wav_16k_mono(audio_file)
         if waveform is None:
-            continue # Skip file if there was a loading error
+            continue
 
         # Step 1: Extract embeddings with YAMNet
         scores, embeddings, spectrogram = yamnet_model(waveform)
 
         # Step 2: Classify embeddings with the custom model
-        predictions = custom_classifier.predict(embeddings, verbose=0) # verbose=0 for cleaner output
+        # `predictions` will have a shape of (num_windows, num_classes)
+        predictions = custom_classifier.predict(embeddings, verbose=0)
 
-        # Average the predictions across all the frames
+        # --- 5. DISPLAY THE OVERALL RESULT (Main sound) ---
         mean_predictions = np.mean(predictions, axis=0)
         inferred_class_index = np.argmax(mean_predictions)
         inferred_class_name = MY_CLASSES[inferred_class_index]
-        
-        # --- 5. DISPLAY THE RESULT FOR THE CURRENT FILE ---
         print(f"The main sound is: {inferred_class_name}")
+
+        # --- 6. NEW: DISPLAY MAX VALUE FOR EACH CLASS PER WINDOW ---
+        print("\n  Max prediction scores per class:")
+        # Find the max score for each class across all windows (axis=0)
+        max_scores_per_class = np.max(predictions, axis=0)
+        # Find the window index where that max score occurred for each class
+        max_score_indices = np.argmax(predictions, axis=0)
+        
+        for i, class_name in enumerate(MY_CLASSES):
+            max_score = max_scores_per_class[i]
+            window_index = max_score_indices[i]
+            # Use formatting to align the output neatly
+            print(f"    - {class_name:<15}: {max_score:.4f}")
 
     print("-" * 50)
     print("\nAll files have been classified.")

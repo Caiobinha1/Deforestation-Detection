@@ -1,0 +1,290 @@
+Here are the results of the inference of the audios in the /Real_audio folder.
+
+Found 44 audio files to classify.
+--------------------------------------------------
+Processing: Chainsaw1_Forest_ambiance1.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+--------------------------------------------------
+Processing: Chainsaw1_Forest_ambiance2.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+--------------------------------------------------
+Processing: Chainsaw1_Rain1.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+    - rain           : 1.0000
+--------------------------------------------------
+Processing: Chainsaw1_Rain3.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+    - rain           : 0.2400
+--------------------------------------------------
+Processing: Chainsaw1_Thunderstorm2.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+    - rain           : 1.0000
+--------------------------------------------------
+Processing: Chainsaw1_Thunderstorm3.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+    - rain           : 1.0000
+--------------------------------------------------
+Processing: Chainsaw2_Forest_ambiance1.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+--------------------------------------------------
+Processing: Chainsaw2_Rain1.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+    - rain           : 1.0000
+--------------------------------------------------
+Processing: Chainsaw2_Thunderstorm3.wav
+The main sound is: rain
+
+  Max prediction scores per class:
+    - chainsaw       : 0.8888
+    - rain           : 1.0000
+--------------------------------------------------
+Processing: Chainsaw3_Forest_ambiance2.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+--------------------------------------------------
+Processing: Chainsaw3_Rain1.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+    - rain           : 0.9105
+--------------------------------------------------
+Processing: Chainsaw3_Thunderstorm3.wav
+The main sound is: rain
+
+  Max prediction scores per class:
+    - chainsaw       : 0.9999
+    - rain           : 1.0000
+--------------------------------------------------
+Processing: Chainsaw4_Forest_ambiance3.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+--------------------------------------------------
+Processing: Chainsaw4_Forest_ambiance4.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+--------------------------------------------------
+Processing: Chainsaw4_Rain3.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+--------------------------------------------------
+Processing: Chainsaw4_Thunderstorm2.wav
+The main sound is: chainsaw
+
+  Max prediction scores per class:
+    - chainsaw       : 1.0000
+    - rain           : 0.7136
+--------------------------------------------------
+Processing: Engine1_Forest_ambiance1.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine1_Rain1.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - rain           : 0.9960
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine1_Thunderstorm1.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - rain           : 0.9984
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine3_Forest_ambiance1.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine3_Forest_ambiance4.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine3_Rain1.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - rain           : 1.0000
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine3_Rain3.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - rain           : 0.9802
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine3_Thunderstorm2.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - rain           : 1.0000
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Engine3_Thunderstorm3.wav
+The main sound is: engine
+
+  Max prediction scores per class:
+    - rain           : 1.0000
+    - engine         : 1.0000
+--------------------------------------------------
+Processing: Fire1_Forest_ambiance1.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - crackling_fire : 0.9995
+--------------------------------------------------
+Processing: Fire1_Forest_ambiance2.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - crackling_fire : 1.0000
+--------------------------------------------------
+Processing: Fire1_Forest_ambiance3.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - crackling_fire : 1.0000
+--------------------------------------------------
+Processing: Fire1_Forest_ambiance4.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - crackling_fire : 1.0000
+--------------------------------------------------
+Processing: Fire2_Forest_ambiance2.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - crackling_fire : 1.0000
+--------------------------------------------------
+Processing: Fire2_Forest_ambiance3.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - crackling_fire : 1.0000
+--------------------------------------------------
+Processing: Footsteps1_Forest_ambiance1.wav
+The main sound is: footsteps
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+--------------------------------------------------
+Processing: Footsteps1_Rain2.wav
+The main sound is: footsteps
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+    - rain           : 0.4607
+--------------------------------------------------
+Processing: Footsteps2_Forest_ambiance1.wav
+The main sound is: footsteps
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+    - rain           : 0.1998
+--------------------------------------------------
+Processing: Footsteps2_Forest_ambiance2.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - footsteps      : 0.9971
+--------------------------------------------------
+Processing: Footsteps2_Rain1.wav
+The main sound is: footsteps
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+    - rain           : 0.9993
+--------------------------------------------------
+Processing: Footsteps3_Forest_ambiance1.wav
+The main sound is: footsteps
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+--------------------------------------------------
+Processing: Footsteps3_Forest_ambiance4.wav
+The main sound is: crackling_fire
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+--------------------------------------------------
+Processing: Footsteps3_Rain2.wav
+The main sound is: footsteps
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+    - rain           : 0.9973
+--------------------------------------------------
+Processing: Footsteps4_Rain2.wav
+The main sound is: footsteps
+
+  Max prediction scores per class:
+    - footsteps      : 1.0000
+    - rain           : 0.9750
+--------------------------------------------------
+Processing: HandSaw1_Rain3.wav
+The main sound is: hand_saw
+
+  Max prediction scores per class:
+    - hand_saw       : 1.0000
+--------------------------------------------------
+Processing: HandSaw2_Rain2.wav
+The main sound is: hand_saw
+
+  Max prediction scores per class:
+    - hand_saw       : 1.0000
+--------------------------------------------------
+Processing: HandSaw3_Rain3.wav
+The main sound is: hand_saw
+
+  Max prediction scores per class:
+    - hand_saw       : 1.0000
+--------------------------------------------------
+Processing: HandSaw4_Rain1.wav
+The main sound is: hand_saw
+
+  Max prediction scores per class:
+    - hand_saw       : 1.0000
+--------------------------------------------------
+
+All files have been classified.
