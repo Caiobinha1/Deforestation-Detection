@@ -15,7 +15,10 @@ MY_CLASSES = ['chainsaw', 'footsteps', 'crackling_fire', 'rain', 'engine', 'hand
 CUSTOM_MODEL_PATH = r'Project\Fine-tuned_model\esc50_forest.h5'
 
 def load_wav_16k_mono(filename):
-    """ Loads a WAV file, converts it to a float tensor, and resamples to 16kHz. """
+    """
+    Loads a WAV file, converts it to a float tensor, resamples to 16kHz,
+    and truncates to the first 15 seconds.
+    """
     try:
         wav_data, sr = sf.read(filename, dtype='float32')
     except Exception as e:
@@ -26,10 +29,18 @@ def load_wav_16k_mono(filename):
     if wav_data.ndim > 1:
         wav_data = np.mean(wav_data, axis=1)
         
-    # Resample if necessary
+    # Resample if necessary to 16kHz
     if sr != 16000:
         num_samples = round(len(wav_data) * 16000 / sr)
         wav_data = scipy.signal.resample(wav_data, num_samples)
+        
+    # --- MODIFICATION START ---
+    # Truncate to the first 15 seconds
+    # 15 seconds * 16000 samples/second = 240,000 samples
+    max_samples = 15 * 16000
+    if len(wav_data) > max_samples:
+        wav_data = wav_data[:max_samples]
+    # --- MODIFICATION END ---
         
     return wav_data.astype(np.float32)
 
