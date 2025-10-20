@@ -75,8 +75,8 @@ The repository is organized into three main folders:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your-repository-url>
-    cd <your-repository-folder>
+    git clone <https://github.com/Caiobinha1/Deforestation-Detection/tree/main/Raspberry>
+    cd <Raspberry>
     ```
 
 2.  **Install Python Dependencies:** It is highly recommended to use a virtual environment.
