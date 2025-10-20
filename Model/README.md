@@ -1,16 +1,16 @@
 # Deforestation Sound Detection Project
 
-This project provides a complete pipeline for creating a custom audio dataset and classifying environmental sounds related to deforestation. It is organized into two main parts: a dataset validation and generation suite, and a fine-tuned machine learning model for inference.
+This folder provides a complete pipeline for creating a custom audio dataset and classifying environmental sounds related to deforestation. It is organized into two main parts: a dataset validation and generation suite, and a fine-tuned machine learning model for inference.
 
 ---
 
-## 📂 Project Structure
+## 📂 Model folder Structure
 
 The repository is organized into two main folders, each with a specific purpose.
 
 Dataset_validation/
 
-    Mix_Audios.py (Script to generate new audio clips)
+    Mixaudios_SNR.py (Script to generate new audio clips)
 
     Raw_Audios/ (Folder for all source audio clips)
 
@@ -28,23 +28,35 @@ Dataset_validation/
 
         Rain/
 
-        Thunderstorm/
+    Generated_Audios/ (Output folder for mixed audios)
+    
+        Chainsaw/
 
-    Generated_Audios/ (Output folder for mixed audio)
+        Engine/
+
+        Fire/
+
+        Footsteps/
+
+        HandSaw/
+
+        Rain/
 
 Fine-tuned_Model/
 
     yamnet-transfer-learning-on-esc50.ipynb (Jupyter Notebook for model training)
 
-    batch_inference.py (Script to classify a folder of audio)
+    Batch_Inference.py (Script to classify a folder of audios)
+
+    BatchInference_threshold.py (Script to classify a folder of audios using a threshold value)
 
     esc50_forest.h5 (The trained Keras model file)
 
 Root Files
 
-    requirements.txt (List of Python dependencies)
+    requirements.txt 
 
-    README.md (This file)
+    README.md 
 
 ### Workflow and Usage
 
@@ -55,14 +67,14 @@ Run the Script: Execute the mixing script from the project's root directory.
 
 Follow Prompts: The script will ask you for the paths to the two source folders and a path for the output. The newly created audio files will be saved in Dataset_validation/Generated_Audios/.
 
-Understand the Model (Optional)
+Understand the Model
 If you want to see how the model was trained and fine-tuned:
 
-Open and run the Jupyter Notebook located at Fine-tuned_Model/yamnet-transfer-learning-on-esc50.ipynb.
+Open the Jupyter Notebook located at Fine-tuned_Model/yamnet-transfer-learning-on-esc50.ipynb.
 
 The final, trained model used by the inference script is Fine-tuned_Model/esc50_forest.h5.
 
 Step 3: Classify Audio
 Use the trained model to classify the sounds in your generated dataset or any other audio folder.
 
-Run the Script: Execute the batch inference script from the project's root directory.
+Run the Script: Execute the batch inference script from the Fine-tuned_model folder.
