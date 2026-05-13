@@ -1,13 +1,13 @@
-# Detecção de Desmatamento e Monitoramento de Segurança Rural
+# Edge Machine Learning for Forest Acoustic Monitoring Demonstration
 
-Este projeto consiste em um sistema de monitoramento acústico automatizado voltado para a segurança de produtores rurais de médio e grande porte. O objetivo é identificar sons característicos de atividades de desmatamento ou intrusão, como motosserras e motores, utilizando redes neurais (YAMNet).
+Este projeto consiste em um sistema de monitoramento acústico automatizado voltado para a segurança de florestas protegidas. O objetivo é identificar sons característicos de atividades de desmatamento ou intrusão, como motosserras e motores, utilizando redes neurais (YAMNet).
 
 ## Estrutura de Pastas
 
 Para o funcionamento dos scripts, a estrutura de diretórios deve ser a seguinte:
 
-- `Teste_de_Campo/Audios_Originais/`: Contém os áudios limpos gravados em campo (Ex: modelos STIHL MS 170 e HT 75).
-- `Teste_de_Campo/Forest_Ambiance/`: Contém os áudios de ruído ambiente (sons de floresta, chuva, pássaros, etc).
+- `Teste_de_Campo/Audios_Originais/`: Contém os áudios limpos gravados em campo (Modelos STIHL MS 170 e HT 75).
+- `Teste_de_Campo/Forest_Ambiance/`: Contém os áudios de ruído ambiente (sons de floresta, pássaros, etc).
 - `Teste_de_Campo/Generated_Audios/`: Pasta onde serão salvos os áudios misturados pelo script de SNR.
 
 ## Requisitos
