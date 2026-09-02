@@ -1,0 +1,8 @@
+# Dependências do Projeto ARARA - Monitoramento Acústico na Borda (SBrT 2026)
+numpy>=1.25.0
+soundfile>=0.12.1
+librosa>=0.10.0
+tensorflow>=2.14.0
+tensorflow-hub>=0.15.0
+matplotlib>=3.7.0
+scikit-learn>=1.2.0

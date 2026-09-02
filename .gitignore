@@ -1,0 +1,23 @@
+# Python virtual environments & bytecode
+.venv/
+env/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+
+# Temporary test outputs
+scratch/
+temp_extract/
+repo.zip

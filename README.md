@@ -1,40 +1,124 @@
-# Edge Machine Learning for Forest Acoustic Monitoring Demonstration
+# ARARA: Monitoramento Acústico de Desmatamento Ilegal via Computação na Borda
 
-Este projeto consiste em um sistema de monitoramento acústico automatizado voltado para a segurança de florestas protegidas. O objetivo é identificar sons característicos de atividades de desmatamento ou intrusão, como motosserras e motores, utilizando redes neurais (YAMNet).
+Este repositório contém o código-fonte, scripts de pré-processamento de áudio, modelo pré-treinado e os dados de validação do trabalho **"ARARA: Monitoramento Acústico de Desmatamento Ilegal via Computação na Borda"**, submetido ao **XLIV Simpósio Brasileiro de Telecomunicações e Processamento de Sinais (SBrT 2026)**.
 
-## Estrutura de Pastas
+---
 
-Para o funcionamento dos scripts, a estrutura de diretórios deve ser a seguinte:
+## Destaque dos Testes de Campo (SBrT 2026)
 
-- `Teste_de_Campo/Audios_Originais/`: Contém os áudios limpos gravados em campo (Modelos STIHL MS 170 e HT 75).
-- `Teste_de_Campo/Forest_Ambiance/`: Contém os áudios de ruído ambiente (sons de floresta, pássaros, etc).
-- `Teste_de_Campo/Generated_Audios/`: Pasta onde serão salvos os áudios misturados pelo script de SNR.
+> *"Foi estruturado um repositório no GitHub contendo tanto os áudios originais capturados nestes testes de campo quanto versões desses misturados a ruídos de ambientes florestais com SNR de 10dB. Todos os arquivos deste conjunto foram classificados corretamente, permitindo verificar a eficácia do sistema mesmo em cenários de interferência acústica."*  
+> — **Artigo ARARA (SBrT 2026)**
 
-## Requisitos
+---
 
-- Python 3.x
-- Bibliotecas: `numpy`, `soundfile`, `librosa`, `tensorflow`, `tensorflow-hub`
+## Visão Geral da Arquitetura
 
-## Como utilizar
+O sistema **ARARA** (*Acoustic Recognition and Alerting for Remote Areas*) é uma solução de monitoramento florestal autônoma em tempo real projetada para operação remota.
 
-### 1. Geração de Dados Sintéticos (Mixagem)
+- **Detecção na Borda (Hardware):** Utiliza um Raspberry Pi 3 acoplado ao kit de desenvolvimento LoRaWAN B-L072Z-LRWAN1, alimentado por um sistema solar (painel de 10 W, bateria de 12 V / 9 Ah e controlador PWM).
+- **Modelo Neural:** Emprega a arquitetura **YAMNet** pré-treinada no AudioSet para extração de embeddings (1024 dimensões) a partir de sinais amostrados em 16 kHz mono, seguidos por uma camada de classificação customizada (512 neurônios ReLU + Softmax de 4 classes: `motosserra`, `motor`, `serra_manual` e `outros`).
+- **Transmissão Eficiente:** Transmite apenas a classe identificada em um *payload* LoRaWAN compacto de 1 byte, reduzindo drasticamente o consumo energético do rádio e viabilizando a autonomia do dispositivo em ambientes remotos.
 
-O script `Mixaudios_SNR.py` é responsável por criar o dataset de teste. Ele combina os sinais das motosserras com o ruído ambiente em uma proporção específica de Signal-to-Noise Ratio (SNR).
+---
 
-- O padrão configurado é de 10 dB.
-- Todos os arquivos são convertidos automaticamente para 16000 Hz (mono).
-- Comando: `python Mixaudios_SNR.py`
+## Estrutura do Repositório
 
-### 2. Inferência em Lote
+```
+Deforestation-Detection/
+├── README.md                          # Documentação acadêmica principal
+├── requirements.txt                   # Dependências do projeto Python
+├── .gitignore                         # Arquivos temporários ignorados pelo Git
+├── LICENSE                            # Licença MIT
+│
+├── Teste_de_Campo/                    # Conjunto oficial de testes de campo (citado no artigo)
+│   ├── Audios_Originais/              # Áudios gravados em campo (Motosserras STIHL MS 170 e HT 75)
+│   ├── Forest_Ambiance/               # Ruídos de fundo florestais (chuva, pássaros, insetos)
+│   ├── Generated_Audios/              # Áudios misturados sinteticamente em SNR de 10 dB
+│   ├── esc50_forest_Demo.h5           # Modelo classificador refinado (YAMNet + Transfer Learning)
+│   ├── Mixaudios_SNR.py               # Script de mixagem em lote sob SNR de 10 dB
+│   └── BatchInference.py              # Script principal de inferência em lote
+│
+└── Analises_e_Resultados/            # Resultados estendidos e artefatos visuais
+    ├── evaluate_extended.py           # Script de geração dos gráficos de desempenho
+    ├── matriz_confusao_oficial.png    # Matriz de Confusão Normalizada Oficial
+    ├── desempenho_motosserras_snr.png  # Confiança de detecção por modelo de motosserra (SNR 10dB)
+    └── Relatorio_Inferencial_ARARA.pdf # Relatório técnico completo em PDF
+```
 
-O script de classificação (ex: `BatchInference.py`) carrega o modelo treinado e processa a pasta de áudios gerados.
+---
 
-- O modelo utiliza a arquitetura YAMNet para extração de embeddings.
-- Classes detectadas: `motosserra`, `motor`, `serra_manual` e `outros`.
-- O sistema aplica um limiar (threshold) de 0.6 para considerar uma detecção como positiva para as classes de interesse.
+## Requisitos e Instalação
 
-## Detalhes Técnicos
+### Pré-requisitos
+- Python 3.9 ou superior
+- Bibliotecas descritas no `requirements.txt`
 
-- Taxa de amostragem alvo: 16000 Hz.
-- Modelos de referência gravados: STIHL MS 170 e STIHL HT 75.
-- A classe `outros` agrupa todos os sons ambientais que não são alvos de detecção do sistema de segurança.
+### Instalação
+
+```bash
+git clone https://github.com/Caiobinha1/Deforestation-Detection.git
+cd Deforestation-Detection
+pip install -r requirements.txt
+```
+
+---
+
+## Como Executar os Experimentos de Campo
+
+### 1. Geração de Dados de Teste (Mixagem em Lote com SNR 10dB)
+
+O script `Mixaudios_SNR.py` combina os sinais originais das motosserras gravadas em campo com ruídos florestais sob uma Relação Sinal-Ruído (SNR) de 10 dB, reamostrando todos os arquivos automaticamente para 16000 Hz mono:
+
+```bash
+python Teste_de_Campo/Mixaudios_SNR.py
+```
+
+*Os arquivos gerados são salvos automaticamente na pasta `Teste_de_Campo/Generated_Audios/`.*
+
+### 2. Inferência em Lote e Classificação
+
+O script `BatchInference.py` carrega a rede YAMNet base do TensorFlow Hub e o modelo classificador `esc50_forest_Demo.h5`, processando os áudios gerados e emitindo o relatório de detecção por agregação de média temporal:
+
+```bash
+python Teste_de_Campo/BatchInference.py
+```
+
+### 3. Geração dos Gráficos de Avaliação
+
+Para visualizar e exportar a Matriz de Confusão e os gráficos de desempenho:
+
+```bash
+python Analises_e_Resultados/evaluate_extended.py
+```
+
+---
+
+## Resultados da Validação de Campo
+
+- **Acurácia de Detecção no Teste de Campo:** 100% de classificação correta dos eventos de motosserra sob interferência florestal (SNR 10 dB).
+- **Tempo Médio de Inferência:** 1,25 segundos por segmento de áudio no Raspberry Pi 3.
+- **Latência Fim-a-Fim:** 30 segundos (incluindo tempo de despertar por energia, aquisição de áudio de 10s, inferência local e transmissão LoRaWAN).
+
+---
+
+## Citação (BibTeX)
+
+Se você utilizar este repositório ou os dados em sua pesquisa, por favor cite o trabalho:
+
+```bibtex
+@inproceedings{arara_sbrt2026,
+  author    = {Caio M. Carlos and Leonardo C. C. Bitencourt and Walter A. Gontijo and Eduardo L. O. Batista and Richard D. Souza},
+  title     = {ARARA: Monitoramento Acústico de Desmatamento Ilegal via Computação na Borda},
+  booktitle = {Anais do XLIV Simpósio Brasileiro de Telecomunicações e Processamento de Sinais (SBrT 2026)},
+  address   = {Salvador, BA},
+  pages     = {1--5},
+  year      = {2026},
+  month     = {sep}
+}
+```
+
+---
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE) - consulte o arquivo para detalhes.
